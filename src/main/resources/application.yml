@@ -22,8 +22,19 @@ spring:
 spring.db.datajson.upload: true
 # Discovery Server Access
 eureka:
-   client:
-     serviceUrl:
+  instance:
+    hostname: ${spring.application.name}
+    preferIpAddress: true
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    statusPageUrlPath: ${server.servlet.context-path}/actuator/info
+    healthCheckUrlPath: ${server.servlet.context-path}/actuator/health
+    leaseRenewalIntervalInSeconds: 15
+    leaseExpirationDurationInSeconds: 45
+    metadata-map:
+      server.servlet.context-path: ${server.servlet.context-path}
+  client:
+    enabled: true
+    serviceUrl:
        defaultZone: http://localhost:1111/eureka/
 # HTTP Server (Tomcat) Port
 server: 
@@ -39,7 +50,7 @@ spring:
    profiles:  
      active: local
    application:
-     name: point_of_sale_app
+     name: posapp
    main:
      allow-bean-definition-overriding: true
    sql.init.mode: always
@@ -60,12 +71,21 @@ spring:
 spring.db.datajson.upload: true
 # Discovery Server Access
 eureka:
-    client:
-      serviceUrl:
-        defaultZone: http://localhost:1111/eureka/
+  instance:
+    hostname: ${spring.application.name}
+    preferIpAddress : false
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    enabled: true
+    serviceUrl:
+       defaultZone: http://localhost:1111/eureka/
 # HTTP Server (Tomcat) Port
 server: 
   port: 5555
+  servlet: 
+   context-path: '/'
 logging.level.org.hibernate.SQL: DEBUG
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 # Disable Spring Boot's "Whitelabel" default error page, so we can use our own

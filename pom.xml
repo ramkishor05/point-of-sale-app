@@ -11,7 +11,7 @@
 		<relativePath />
 	</parent>
 
-	<artifactId>point-of-sale-crm</artifactId>
+	<artifactId>point-of-sale-app</artifactId>
 	<packaging>jar</packaging>
 
 	<properties>
@@ -138,7 +138,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.brijframework.production.ProductionMainApp</mainClass>
+					<mainClass>com.brijframework.app.ApplicaionMainApp</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>
