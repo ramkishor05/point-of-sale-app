@@ -6,11 +6,9 @@ import static com.brijframework.app.contants.Constants.LOGO_URL;
 import static com.brijframework.app.contants.Constants.NAME;
 import static com.brijframework.app.contants.Constants.TYPE_ID;
 
-import javax.persistence.Column;
-import javax.persistence.Lob;
-import javax.persistence.MappedSuperclass;
-
-import com.brijframework.app.entities.EOEntityObject;
+import jakarta.persistence.Column;
+import jakarta.persistence.Lob;
+import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class EOGlobalItem extends EOEntityObject{

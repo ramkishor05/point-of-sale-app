@@ -1,18 +1,21 @@
 package com.brijframework.app.entities;
 
-import static com.brijframework.app.contants.Constants.*;
+import static com.brijframework.app.contants.Constants.DESCRIPTION;
+import static com.brijframework.app.contants.Constants.EOGLOBAL_CATEGORY;
+import static com.brijframework.app.contants.Constants.GLB_IMG_ID;
+import static com.brijframework.app.contants.Constants.GROUP_ID;
+import static com.brijframework.app.contants.Constants.NAME;
+import static com.brijframework.app.contants.Constants.TYPE_ID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
-import com.brijframework.app.entities.EOEntityObject;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
